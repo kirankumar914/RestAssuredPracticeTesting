@@ -1,0 +1,7 @@
+{
+  "body": "Updating the existing comment to a new comment",
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  }
+}

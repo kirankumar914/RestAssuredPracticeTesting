@@ -1,0 +1,7 @@
+<suite name="restAssuredFrameWorkTraining">
+    <test name="log4jSampleTest">
+        <classes>
+            <class name="restApi.Twitter.Log4jSample" />
+        </classes>
+    </test>
+</suite>

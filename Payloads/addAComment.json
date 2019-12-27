@@ -1,0 +1,7 @@
+{
+  "body": "Adding a comment using REST API",
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  }
+}
