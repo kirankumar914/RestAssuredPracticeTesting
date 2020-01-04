@@ -2,21 +2,37 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
 
-    <appender name="console" class="org.apache.log4j.ConsoleAppender">
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
-        </layout>
+    <!-- The below steps are for to log in the console-->
+    <!---->
+    <!--<appender name="console" class="org.apache.log4j.ConsoleAppender">-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />-->
+        <!--</layout>-->
+    <!--</appender>-->
+
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+    <param name="append" value="true" />
+    <param name="maxFileSize" value="2MB" />
+    <param name="maxBackupIndex" value="5" />
+    <param name="file" value="logs/mainlog.log" />
+    <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern"
+               value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+    </layout>
     </appender>
 
+    <!-- to log a particular package we should use the below-->
+    <!-- when additivity="false" it will not log duplictae logs-->
+    <!--<logger name="restApi.Twitter.Log4jSample.java" additivity="false">-->
+        <!--<level value="DEBUG" />-->
+        <!--<appender-ref ref="console" />-->
+    <!--</logger>-->
 
-    <logger name="com.easybix.RestFramework.SampleTestOne" additivity="false">
-        <level value="error" />
-        <appender-ref ref="console" />
-    </logger>
+    <!-- logging starts from the root in this project it starts from Rest_Assured_Testing-->
 
     <root>
         <level value="DEBUG" />
-        <appender-ref ref="console" />
+        <appender-ref ref="file" />  <!-- if ref="consloe" logs will print in console , if is file then logs will print in external file-->
     </root>
 
 </log4j:configuration>

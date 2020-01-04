@@ -12,7 +12,7 @@ public class Log4jSample {
     @Test
     public void firstLog4JSampleTest()
     {
-log.debug("first test case with log 4J");
+        log.debug("first test case with log 4J");
     }
 
     @Test
